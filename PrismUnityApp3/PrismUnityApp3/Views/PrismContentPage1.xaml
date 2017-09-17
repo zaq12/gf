@@ -16,7 +16,7 @@
                             <ColumnDefinition Width="0.3*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Grid.Column="0" Text="{Binding Names, StringFormat='Nanme: {0}'}" FontAttributes="Bold"  />
+                        <Label Grid.Column="0" Text="{Binding Names, StringFormat='Name: {0}'}" FontAttributes="Bold"  />
 
 
                     </Grid>
