@@ -29,8 +29,8 @@ namespace PrismUnityApp3.ViewModels
         public DelegateCommand RedirectCommand => _redirectCommand = new DelegateCommand(Redirect);
 
 
-        private INavigationService _navigationService;
-        public INavigationService navigationService
+        public INavigationService _navigationService;
+        public INavigationService NavigationService
         {
             get { return _navigationService; }
             set { SetProperty(ref _navigationService, value); }
@@ -39,7 +39,7 @@ namespace PrismUnityApp3.ViewModels
 
         private async void Redirect()
         {
-            await navigationService.NavigateAsync("PrismContentPage1");
+            await NavigationService.NavigateAsync("PrismContentPage1");
         }
 
 
