@@ -3,27 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="PrismUnityApp3.Views.PrismContentPage1">
-    <Label Text="Label"/>
+             x:Class="PrismUnityApp3.Views.PrismContentPage1"             
+             xmlns:xlabs="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             BackgroundColor="Black"
+             xmlns:customControls="clr-namespace:PrismUnityApp3;assembly=PrismUnityApp3">
+    <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" Padding="10">
+        <customControls:CustomPicker WidthRequest="250" HorizontalOptions="FillAndExpand" Text="{Binding Title}" TextColor="White">
+            <customControls:CustomPicker.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Command}"/>
+            </customControls:CustomPicker.GestureRecognizers>
+        </customControls:CustomPicker>
+    </StackLayout>
 
-    <ListView x:Name="Resourcelist" ItemsSource="{Binding ListElements}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.7*" />
-                            <ColumnDefinition Width="0.3*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label Grid.Column="0" Text="{Binding Names, StringFormat='Name: {0}'}" FontAttributes="Bold"  />
-
-
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-            </ListView.ItemTemplate>
-
-    </ListView>
-    
 </ContentPage>

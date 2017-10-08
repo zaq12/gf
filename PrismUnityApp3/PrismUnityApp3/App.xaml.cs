@@ -21,6 +21,7 @@ namespace PrismUnityApp3
             Container.RegisterTypeForNavigation<MainPage>();
             Container.RegisterTypeForNavigation<PrismContentPage1>();
 
+            Container.RegisterTypeForNavigation<Popup>();
         }
     }
 }

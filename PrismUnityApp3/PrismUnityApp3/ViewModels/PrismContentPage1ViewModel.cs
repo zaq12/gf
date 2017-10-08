@@ -7,59 +7,43 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace PrismUnityApp3.ViewModels
 {
-    public class PrismContentPage1ViewModel : BindableBase
+    public class PrismContentPage1ViewModel : MainPageViewModel
     {
-        public PrismContentPage1ViewModel()
+        private string _title;
+        public string Title
         {
-            ListElements = new ObservableCollection<Resource>();
-
-        //    _listElements = new_conts;
-     //       updateUI(new_conts, false);
-
+            get { return _title; }
+            set { SetProperty(ref _title, value); }
         }
-        private ObservableCollection<Resource> _listElements;
-        public ObservableCollection<Resource> ListElements
+
+        public PrismContentPage1ViewModel(INavigationService navigationService) : base(navigationService)
+        {
+            _navigationService = navigationService;
+            ListElements = new ObservableCollection<string> {"b"};
+            Title = "ggg";
+        }
+        private ObservableCollection<string> _listElements;
+        public ObservableCollection<string> ListElements
         {
             get { return _listElements; }
             set
             {
-            //    ObservableCollection<Resource> new_conts = new ObservableCollection<Resource>();
-           //     new_conts.Add(new Resource("aaa"));
-            ///    new_conts.Add(new Resource("aaaa"));
-                SetProperty(ref _listElements, new Resourcelist().resourcelist);
-              //  updateUI(_listElements, false);
+                SetProperty(ref _listElements, value);
 
             }
         }
-        protected async Task LoadData()
+        private DelegateCommand _command;
+        public DelegateCommand Command => _command = new DelegateCommand(Commandt);
+
+
+        private async void Commandt()
         {
-            ObservableCollection<Resource> new_conts = new ObservableCollection<Resource>();
-            //new_conts.Add(new Resource("aaa"));
-            //Load Data Here
-           // ObservableCollection<Resource> new_conts = new Resourcelist().resourcelist;
-
-                //Refresh UI
-               updateUI(new_conts, false);
-
-
-        }
-        protected virtual void updateUI(ObservableCollection<Resource> new_elems,bool clear)
-        {
-
-
-            Device.BeginInvokeOnMainThread(() =>
-            {
-
-                if (clear) ListElements.Clear();
-                ListElements = new_elems;
-            });
-
-
-
+            await NavigationService.PushPopupPageAsync("Popup");
         }
 
     }
