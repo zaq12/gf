@@ -17,12 +17,7 @@ namespace PrismUnityApp3
 
         protected override void RegisterTypes()
         {
-            Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<MainPage>();
-            Container.RegisterTypeForNavigation<PrismContentPage1>();
-
-            Container.RegisterTypeForNavigation<Popup>();
-            Container.RegisterTypeForNavigation<PrismContentPage2>();
+buinnio
         }
     }
 }
