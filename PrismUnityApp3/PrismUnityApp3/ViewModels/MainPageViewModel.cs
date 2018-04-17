@@ -44,20 +44,20 @@ namespace PrismUnityApp3.ViewModels
 
 
 
-        public void OnNavigatedFrom(NavigationParameters parameters)
+        public virtual void OnNavigatedFrom(NavigationParameters parameters)
         {
 
         }
 
-        public void OnNavigatingTo(NavigationParameters parameters)
+        public virtual void OnNavigatedTo(NavigationParameters parameters)
         {
 
         }
 
-        public void OnNavigatedTo(NavigationParameters parameters)
+        public virtual void OnNavigatingTo(NavigationParameters parameters)
         {
-            if (parameters.ContainsKey("title"))
-                Title = (string)parameters["title"] + " and Prism";
+
         }
+
     }
 }

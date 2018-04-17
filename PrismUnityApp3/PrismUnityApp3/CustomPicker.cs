@@ -9,5 +9,6 @@ namespace PrismUnityApp3
 {
     public class CustomPicker : ExtendedLabel
     {
+var s = "Sss";
     }
 }
