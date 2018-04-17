@@ -6,6 +6,10 @@
                  prism:ViewModelLocator.AutowireViewModel="True"
                  x:Class="PrismUnityApp3.Views.Popup"
                  Padding="20"
+                 
+
                  >
-    <ListView ItemsSource="{Binding ListElements}"/>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Orientation="Vertical" BackgroundColor="White">
+        <ListView ItemsSource="{Binding ListElements}" RowHeight="25" HasUnevenRows="True" ItemTapped="OnItemTapped"/>
+    </StackLayout>
 </popup:PopupPage>
